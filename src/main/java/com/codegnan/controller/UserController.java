@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.codegnan.dto.UserDto;
 import com.codegnan.model.User;
 import com.codegnan.service.UserService;
 
@@ -32,9 +33,9 @@ public class UserController {
 	
 	@PostMapping
 	@ResponseStatus(code=HttpStatus.CREATED)// 201
-	public User createUser(@RequestBody User user) {
-		log.info("UserController:: createUser{}",user.getUserId());
-		return userService.addUser(user);
+	public UserDto createUser(@RequestBody UserDto userDto) {
+		log.info("UserController:: createUser{}",userDto.getUserId());
+		return userService.addUser(userDto);
 	}
 	
 	@GetMapping("/{userId}")

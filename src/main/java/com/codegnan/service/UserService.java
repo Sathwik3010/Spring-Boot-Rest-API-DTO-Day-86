@@ -2,10 +2,11 @@ package com.codegnan.service;
 
 import java.util.List;
 
+import com.codegnan.dto.UserDto;
 import com.codegnan.model.User;
 
 public interface UserService {
-	public User addUser(User user);
+	public UserDto addUser(UserDto userDto);
 
 	public User findByUserId(Integer userId);
 

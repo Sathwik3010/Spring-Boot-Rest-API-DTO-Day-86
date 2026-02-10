@@ -5,21 +5,30 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import com.codegnan.dto.UserDto;
+import com.codegnan.mapper.UserMapper;
 import com.codegnan.model.User;
 import com.codegnan.repository.UserRepository;
 
 @Service
 public class UserServiceImpl implements UserService{
 	private UserRepository userRepository;
-
-	public UserServiceImpl(UserRepository userRepository) {
+	private UserMapper userMapper;
+	
+	
+	public UserServiceImpl(UserRepository userRepository, UserMapper userMapper) {
 		super();
 		this.userRepository = userRepository;
+		this.userMapper = userMapper;
 	}
 
 	@Override
-	public User addUser(User user) {
-		return userRepository.save(user);
+	public UserDto addUser(UserDto userDto) {
+		User user = userMapper.toEntity(userDto);
+		User dbUser = userRepository.save(user);
+		// entity to Dto
+		UserDto result = userMapper.toDto(dbUser);
+		return result;
 	}
 
 	@Override
