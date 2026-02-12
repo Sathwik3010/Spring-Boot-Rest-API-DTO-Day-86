@@ -1,0 +1,13 @@
+DTO Pattern(Data Transfer Object)
+=================================
+The DTO (Data Transfer Object) pattern is widely used in REST API development to improve performance, maintainability, and security. It acts as an intermediary between the API and the data model.
+1.      Encapsulation of Data: DTO helps in exposing only the necessary fields to the client, hiding internal entity details.
+2.      Security: Prevents overexposure of sensitive fields from the database models.
+3.      Performance Optimization: Reduces payload size by sending only required fields.
+4.      Loose Coupling: Decouples database entities from API responses, making future modifications easier.
+5.      Data Transformation: Allows formatting, validation, or calculation before sending responses.
+
+When to Use DTOs?
+✅For API responses – To send only required fields.
+✅For API requests – To validate and transform input before saving it to the database.
+✅For external APIs – To avoid exposing internal models.
